@@ -10,6 +10,15 @@ const router = require("./routers");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 80;
 
+app.use(cors(
+  {
+      origin: ["https://deploy-mern-frontend.vercel.app"],
+      methods: ["POST", "GET"],
+      credentials: true
+  }
+));
+app.use(express.json())
+
 const db = require("./db");
 db.connect();
 
